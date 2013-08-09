@@ -1,0 +1,76 @@
+﻿body {
+}
+
+#maincontent {
+    margin-top: 15px;
+}
+#telerik-navi {
+top: 0;
+right: 0;
+left: 0;
+width: 100%;
+color: #fff;
+font-size: 10px;
+line-height: 16px;
+background-color: #21242C;
+z-index: 10000;
+}
+
+#telerik-bar {
+height: 35px;
+background-color: #21242c;
+z-index: 5;
+margin-left:50px;
+}
+
+#telerik-bar .inner {
+background-color: #21242C;
+}
+
+#telerik-navi .inner {
+width: 940px;
+min-width: 320px;
+text-align: center;
+}
+#telerik-navi .inner, #telerik-bar, #telerik-menu>li, #telerik-products>li {
+position: relative;
+}
+.clearfix, #telerik-navi .inner, #telerik-bar {
+}
+#telerik-logo img {
+    display: block;
+}
+
+#body {
+    margin: 10px 50px 10px 50px;
+}
+
+#profile-name {
+    font-weight:bold;
+    font-size:larger
+}
+
+#profile-realname {
+    font-style:italic
+}
+
+#profile-bio {
+    font-size:smaller;
+
+}
+
+#profile-blog {
+}
+
+#profile-stackoverflow {
+    border: 1px outset grey
+}
+
+.small-icon {
+    max-height:32px;
+    max-width:32px;
+}
+
+footer {
+    margin: 0px 0px 0px 50px;
+}

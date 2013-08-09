@@ -4,41 +4,27 @@
     <meta charset="utf-8" />
     <title>@ViewBag.Title - Telerik</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/css/site.css" rel="stylesheet" />
     <link href="~/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
-            </div>
-            <div class="float-right">
-                <section id="login">
-@*                    @Html.Partial("_LoginPartial")*@
-                </section>
-                <nav>
-                    <ul id="menu">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
-                </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 col-offset-1" id="telerik-navi">
+                <a id="telerik-logo" href="http://www.telerik.com" title="Telerik">
+                    <img src="/Content/images/telerik-logo.png" width="107" height="35" alt="Telerik"><span id="telerik-slogan"></span></a>
             </div>
         </div>
-    </header>
-    <div id="body">
-        <section class="content-wrapper main-content clear-fix">
+        <div class="row" id="maincontent">
             @RenderBody()
-        </section>
-    </div>
-    <footer>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+        </div>
+        <div class="row">
+            <div class="col-10 col-offset-1">
+                <p>&copy; @DateTime.Now.Year - Telerik, Inc.</p>
             </div>
         </div>
-    </footer>
+    </div>
 
     <script type="text/javascript" src="~/Scripts/jquery-2.0.3.js" />
     <script type="text/javascript" src="~/js/bootstrap.js" />

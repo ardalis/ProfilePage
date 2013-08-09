@@ -1,6 +1,52 @@
-﻿@{
+﻿@model Web.Models.ProfileViewModel
+@{
     ViewBag.Title = "Index";
 }
 
-<h2>Ardalis</h2>
+
+<div class="col-2 col-offset-1">
+    <div class="row">
+        <div class="col-12" id="avatar">
+            <img class="img-rounded" src="http://www.gravatar.com/avatar/4ace570c8e5735cf9d99505e376f2997?s=80" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12" id="profile-name">
+            @Model.Name
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12" id="profile-realname">
+            @Model.RealName
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12" id="profile-bio">
+            @Model.ShortBio
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12" id="profile-blog">
+            <a href="@Model.BlogUrl">@Model.BlogName</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12" id="profile-stackoverflow">
+            STACKOVERFLOW
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12" id="profile-icons">
+            <a href="http://twitter.com/@Model.TwitterAlias"><img class="small-icon" src="~/Content/images/twitter.png" /></a>
+            <a href="@Model.FacebookUrl"><img class="small-icon" src="~/Content/images/facebook.png" /></a>
+            <a href="@Model.LinkedInUrl"><img class="small-icon" src="~/Content/images/linkedin.png" /></a>
+        </div>
+    </div>
+</div>
+<div class="col-4">
+    Center
+</div>
+<div class="col-4">
+    Right
+</div>
 
