@@ -22,7 +22,8 @@ namespace Web.Controllers
                 BlogUrl = "http://ardalis.com",
                 TwitterAlias="ardalis",
                 FacebookUrl="http://facebook.com/StevenAndrewSmith",
-                LinkedInUrl = "http://www.linkedin.com/in/stevenandrewsmith/"
+                LinkedInUrl = "http://www.linkedin.com/in/stevenandrewsmith/",
+                StackOverflowName = "ssmith"
             };
             return View(model);
         }

@@ -63,8 +63,18 @@ position: relative;
 }
 
 #profile-stackoverflow {
-    border: 1px outset grey
+    border: 1px outset grey;
 }
+
+    #profile-stackoverflow a {
+        color: black;
+        font-weight: bold;
+    }
+
+    #profile-stackoverflow img {
+            max-height:40px;
+            max-width:40px;
+    }
 
 .small-icon {
     max-height:32px;

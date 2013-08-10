@@ -15,5 +15,6 @@ namespace Web.Models
         public string TwitterAlias { get; set; }
         public string FacebookUrl { get; set; }
         public string LinkedInUrl { get; set; }
+        public string StackOverflowName { get; set; }
     }
 }
