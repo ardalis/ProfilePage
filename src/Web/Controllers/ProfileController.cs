@@ -23,7 +23,10 @@ namespace Web.Controllers
                 TwitterAlias="ardalis",
                 FacebookUrl="http://facebook.com/StevenAndrewSmith",
                 LinkedInUrl = "http://www.linkedin.com/in/stevenandrewsmith/",
-                StackOverflowName = "ssmith"
+                StackOverflowUsername = "ssmith",
+                PluralsightUsername = "steve-smith",
+                GitHubUsername="ardalis",
+                JoinDateString="August 2013"
             };
             return View(model);
         }

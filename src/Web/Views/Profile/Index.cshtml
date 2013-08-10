@@ -30,17 +30,44 @@
             <a href="@Model.BlogUrl">@Model.BlogName</a>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12" id="profile-stackoverflow">
-            <a href="http://stackoverflow.com/users/13729/@Model.StackOverflowName">@Model.StackOverflowName
-            <img src="~/Content/images/stackoverflow.png" alt="StackOverflow"/></a>
+    <div class="row thirdparty">
+        <div class="col-8">
+            <a href="http://stackoverflow.com/users/13729/@Model.StackOverflowUsername">@Model.StackOverflowUsername</a>
+        </div>
+        <div class="col-4">
+            <img src="~/Content/images/stackoverflow.png" alt="StackOverflow" />
+        </div>
+    </div>
+    <div class="row thirdparty">
+        <div class="col-8">
+            <a href="http://pluralsight.com/training/users/@Model.PluralsightUsername">@Model.PluralsightUsername</a>
+        </div>
+        <div class="col-4">
+            <img src="~/Content/images/pluralsight.png" alt="Pluralsight" />
+        </div>
+    </div>
+    <div class="row thirdparty">
+        <div class="col-8">
+            <a href="http://github.com/@Model.GitHubUsername">@Model.GitHubUsername</a>
+        </div>
+        <div class="col-4">
+            <img src="~/Content/images/github.gif" alt="GitHub" />
+        </div>
+    </div>
+    <div class="row" id="profile-icons">
+        <div class="col-12">
+            <a href="http://twitter.com/@Model.TwitterAlias">
+                <img class="small-icon" src="~/Content/images/twitter.png" /></a>
+            <a href="@Model.FacebookUrl">
+                <img class="small-icon" src="~/Content/images/facebook.png" /></a>
+            <a href="@Model.LinkedInUrl">
+                <img class="small-icon" src="~/Content/images/linkedin.png" /></a>
         </div>
     </div>
     <div class="row">
-        <div class="col-12" id="profile-icons">
-            <a href="http://twitter.com/@Model.TwitterAlias"><img class="small-icon" src="~/Content/images/twitter.png" /></a>
-            <a href="@Model.FacebookUrl"><img class="small-icon" src="~/Content/images/facebook.png" /></a>
-            <a href="@Model.LinkedInUrl"><img class="small-icon" src="~/Content/images/linkedin.png" /></a>
+        <div class="col-12" id="profile-joindate">
+            Member Since: <br />
+            @Model.JoinDateString
         </div>
     </div>
 </div>

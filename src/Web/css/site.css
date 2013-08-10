@@ -60,20 +60,36 @@ position: relative;
 }
 
 #profile-blog {
+    margin-top: 10px;
 }
 
-#profile-stackoverflow {
+#profile-icons {
+    margin-top:25px;
+}
+
+#profile-joindate {
+    font-size:smaller;
+    font-weight:bold;
+    margin-top:25px;
+}
+
+.thirdparty {
     border: 1px outset grey;
+    min-height: 50px;
+    vertical-align:middle;
+    margin-top:5px;
 }
 
-    #profile-stackoverflow a {
+    .thirdparty a {
         color: black;
         font-weight: bold;
     }
 
-    #profile-stackoverflow img {
+    .thirdparty img {
             max-height:40px;
             max-width:40px;
+            padding-right:2px;
+            padding-top:2px;
     }
 
 .small-icon {

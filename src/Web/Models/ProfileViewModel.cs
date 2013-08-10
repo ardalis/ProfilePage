@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace Web.Models
 {
@@ -15,6 +13,9 @@ namespace Web.Models
         public string TwitterAlias { get; set; }
         public string FacebookUrl { get; set; }
         public string LinkedInUrl { get; set; }
-        public string StackOverflowName { get; set; }
+        public string StackOverflowUsername { get; set; }
+        public string PluralsightUsername { get; set; }
+        public string GitHubUsername { get; set; }
+        public string JoinDateString { get; set; }
     }
 }
