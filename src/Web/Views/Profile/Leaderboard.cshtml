@@ -58,5 +58,15 @@
                 ]
             });
         });
+
+        var hub = $.connection.profileHub;
+        hub.client.updateBoard = function (profile) {
+            updateLeaderboard(profile);
+        };
+        $.connection.hub.start();
+
+        function updateLeaderboard(profile) {
+            var data = $("#grid").data("kendoGrid").dataSource.data();
+        }
     </script>
 }
