@@ -18,6 +18,12 @@ namespace Web
                 url: "{profileName}",
                 defaults: new { controller = "Profile", action = "Index", profileName = "" }
             );
+
+            routes.MapRoute(
+                name: "LeaderboardData",
+                url: "Profile/LeaderboardData",
+                defaults: new { controller = "Profile", action = "LeaderboardData" }
+            );
         }
     }
 }

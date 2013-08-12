@@ -26,3 +26,37 @@
         <td>1</td>
     </tr>
 </table>
+
+<div id="grid" class="table table-striped table-hover"></div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#grid").kendoGrid({
+                dataSource: {
+                    type: "json",
+                    transport: {
+                        read: "/Profile/LeaderboardData"
+                    },
+                    schema: {
+                        model: {
+                            fields: {
+                                Name: { type: "string" },
+                                Level: { type: "number" }
+                            }
+                        }
+                    },
+                    pageSize: 20,
+                    serverPaging: false,
+                    serverFiltering: false,
+                    serverSorting: false
+                },
+                height:430,
+                columns: [{
+                    field:"Name"},
+                    {field:"Level"}
+                ]
+            });
+        });
+    </script>
+}

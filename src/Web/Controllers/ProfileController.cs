@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Web.Models;
@@ -31,5 +32,15 @@ namespace Web.Controllers
             return View(model);
         }
 
+        public ActionResult LeaderboardData()
+        {
+            var members = new List<ProfileMember>()
+            {
+                new ProfileMember() { Name="Ardalis", Level=70 },
+                new ProfileMember() { Name="Brendoneus", Level=69 },
+                new ProfileMember() { Name="Eric", Level=2 }
+            };
+            return Json(members, JsonRequestBehavior.AllowGet);
+        }
     }
 }
