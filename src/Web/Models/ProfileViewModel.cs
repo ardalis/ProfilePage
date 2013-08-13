@@ -18,6 +18,7 @@ namespace Web.Models
         public string PluralsightUsername { get; set; }
         public string GitHubUsername { get; set; }
         public string JoinDateString { get; set; }
+        public string LastActivityTimeSpanString { get; set; }
         public int CurrentLevel { get; set; }
         public int NextLevel { get; set; }
         public int PointsTowardNextLevel { get; set; }

@@ -28,6 +28,9 @@
             <a href="@Model.BlogUrl">@Model.BlogName</a>
         </div>
     </div>
+    <div class="row">
+        <h4>Linked Accounts:</h4>
+    </div>
     <div class="row thirdparty">
         <div class="col-8">
             <a href="http://stackoverflow.com/users/13729/@Model.StackOverflowUsername">@Model.StackOverflowUsername</a>
@@ -64,9 +67,13 @@
     </div>
     <div class="row">
         <div class="col-12" id="profile-joindate">
+            Last Activity:
+            <br />
+            <i>@Model.LastActivityTimeSpanString</i>
             Member Since:
             <br />
-            @Model.JoinDateString
+            <i>@Model.JoinDateString</i>
+            <br />
         </div>
     </div>
 </div>
@@ -101,7 +108,7 @@
         </div>
         <div class="col-6">
             <div class="box">
-                <h2>Achievements</h2>
+                <h2>Latest Achievements</h2>
                 <div class="lowersection">
                     <div class="container">
                         <div class="row">

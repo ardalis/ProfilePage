@@ -28,6 +28,7 @@ namespace Web.Controllers
                 PluralsightUsername = "steve-smith",
                 GitHubUsername="ardalis",
                 JoinDateString="August 2013",
+                LastActivityTimeSpanString="5 seconds ago",
                 CurrentLevel=21,
                 NextLevel=22,
                 PointsTowardNextLevel=460,
