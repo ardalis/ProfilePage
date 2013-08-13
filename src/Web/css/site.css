@@ -100,3 +100,12 @@ position: relative;
 footer {
     margin: 0px 0px 0px 50px;
 }
+
+.box {
+    border: 1px solid black;
+    border-radius:5px;
+}
+
+.lowersection {
+    border-top: 1px solid black;
+}
