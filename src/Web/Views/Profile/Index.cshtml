@@ -74,20 +74,20 @@
     <div class="row">
         <div class="col-6">
             <div class="box">
-                <h2>Level 21</h2>
+                <h2>Level @Model.CurrentLevel</h2>
                 <div class="lowersection">
                     <div class="container">
                         <div class="row">
                             <div class="col-2">
-                                <h3>21</h3>
+                                <h3>@Model.CurrentLevel</h3>
                             </div>
                             <div class="col-8">
                                 <div class="progress-bar2 green">
-                                    <span style="width: 40%">460</span><div class="progressend">1000</div>
+                                    <span style="width: 40%">@Model.PointsTowardNextLevel</span><div class="progressend">@Model.PointsRequiredForNextLevel</div>
                                 </div>
                             </div>
                             <div class="col-2">
-                                <h3>22</h3>
+                                <h3>@Model.NextLevel</h3>
                             </div>
                         </div>
                         <div class="row">
@@ -131,27 +131,15 @@
     <div class="row">
         <div class="col-6">
             <h2>Get More Points</h2>
+            @foreach (var activity in Model.SuggestedActivities) {
             <div class="greybox">
-                <div class="col-2 number">1,500</div>
+                <div class="col-2 number">@activity.Points</div>
                 <div class="col-10">
-                    <h4>Submit a testimonial</h4>
-                    Share your opinion about our products and services.
+                    <h4>@activity.Name</h4>
+                    @activity.Description
                 </div>
             </div>
-            <div class="greybox">
-                <div class="col-2 number">5,000</div>
-                <div class="col-10">
-                    <h4>Submit a case study</h4>
-                    Share your successes with Telerik products.
-                </div>
-            </div>
-            <div class="greybox">
-                <div class="col-2 number">2,500</div>
-                <div class="col-10">
-                    <h4>Refer a Customer</h4>
-                    Share your opinion about our products and services.
-                </div>
-            </div>
+            }
         </div>
         <div class="col-6">
             <h2>Achievement Progress</h2>

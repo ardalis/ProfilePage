@@ -10,10 +10,15 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-10 col-offset-1" id="telerik-navi">
+        <div class="row topbar">
+            <div class="col-7 col-offset-1" id="telerik-navi">
                 <a id="telerik-logo" href="http://www.telerik.com" title="Telerik">
                     <img src="/Content/images/telerik-logo.png" width="107" height="35" alt="Telerik"><span id="telerik-slogan"></span></a>
+            </div>
+            <div class="col-4 telerikmenu">
+                <ul>
+                    <li><a href="/">LEADERBOARD</a></li>
+                </ul>
             </div>
         </div>
         <div class="row" id="maincontent">
@@ -26,12 +31,12 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js" ></script>
-    <script type="text/javascript" src="/Scripts/bootstrap.js" ></script>
-    <script type="text/javascript" src="/Scripts/kendo.all.min.js" ></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="/Scripts/kendo.all.min.js"></script>
     <script src="/Scripts/jquery.signalR-1.1.3.js"></script>
     <script src="/signalr/hubs"></script>
 
-    @RenderSection("scripts", false) 
+    @RenderSection("scripts", false)
 </body>
 </html>

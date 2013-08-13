@@ -4,59 +4,49 @@
 #maincontent {
     margin-top: 15px;
 }
-#telerik-navi {
-top: 0;
-right: 0;
-left: 0;
-width: 100%;
-color: #fff;
-font-size: 10px;
-line-height: 16px;
-background-color: #21242C;
-z-index: 10000;
+
+.topbar {
+    top: 0;
+    right: 0;
+    left: 0;
+    color: #fff;
+    line-height: 20px;
+    background-color: #21242C;
+    z-index: 10000;
 }
 
-#telerik-bar {
-height: 35px;
-background-color: #21242c;
-z-index: 5;
-margin-left:50px;
-}
+    .topbar a {
+        color: white;
+    }
 
-#telerik-bar .inner {
-background-color: #21242C;
+.telerikmenu ul {
+    list-style: none outside;
 }
-
-#telerik-navi .inner {
-width: 940px;
-min-width: 320px;
-text-align: center;
+.telerikmenu li a {
+    color: #c1c1c1;
+    line-height: 20px;
+    display:block;
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    vertical-align:bottom
 }
-#telerik-navi .inner, #telerik-bar, #telerik-menu>li, #telerik-products>li {
-position: relative;
-}
-.clearfix, #telerik-navi .inner, #telerik-bar {
-}
-#telerik-logo img {
-    display: block;
-}
-
 #body {
     margin: 10px 50px 10px 50px;
 }
 
 #profile-name {
-    font-weight:bold;
-    font-size:larger
+    font-weight: bold;
+    font-size: larger;
 }
 
 #profile-realname {
-    font-style:italic
+    font-style: italic;
 }
 
 #profile-bio {
-    font-size:smaller;
-
+    font-size: smaller;
 }
 
 #profile-blog {
@@ -64,20 +54,20 @@ position: relative;
 }
 
 #profile-icons {
-    margin-top:25px;
+    margin-top: 25px;
 }
 
 #profile-joindate {
-    font-size:smaller;
-    font-weight:bold;
-    margin-top:25px;
+    font-size: smaller;
+    font-weight: bold;
+    margin-top: 25px;
 }
 
 .thirdparty {
     border: 1px outset grey;
     min-height: 50px;
-    vertical-align:middle;
-    margin-top:5px;
+    vertical-align: middle;
+    margin-top: 5px;
 }
 
     .thirdparty a {
@@ -86,15 +76,15 @@ position: relative;
     }
 
     .thirdparty img {
-            max-height:40px;
-            max-width:40px;
-            padding-right:2px;
-            padding-top:2px;
+        max-height: 40px;
+        max-width: 40px;
+        padding-right: 2px;
+        padding-top: 2px;
     }
 
 .small-icon {
-    max-height:32px;
-    max-width:32px;
+    max-height: 32px;
+    max-width: 32px;
 }
 
 footer {
@@ -103,7 +93,7 @@ footer {
 
 .box {
     border: 1px solid black;
-    border-radius:5px;
+    border-radius: 5px;
 }
 
 .lowersection {

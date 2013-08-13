@@ -27,9 +27,39 @@ namespace Web.Controllers
                 StackOverflowUsername = "ssmith",
                 PluralsightUsername = "steve-smith",
                 GitHubUsername="ardalis",
-                JoinDateString="August 2013"
+                JoinDateString="August 2013",
+                CurrentLevel=21,
+                NextLevel=22,
+                PointsTowardNextLevel=460,
+                PointsRequiredForNextLevel=1000,
+                SuggestedActivities=GetSuggestedActivities()
             };
             return View(model);
+        }
+
+        private List<ActivityViewModel> GetSuggestedActivities()
+        {
+            return new List<ActivityViewModel>()
+            {
+                new ActivityViewModel()
+                {
+                    Points=1500,
+                    Name="Submit a testimonial",
+                    Description="Share your opinion about our products and services."
+                },
+                new ActivityViewModel()
+                {
+                    Points=5000,
+                    Name="Submit a case study",
+                    Description="Share your successful project that used Telerik products."
+                },
+                new ActivityViewModel()
+                {
+                    Points=50,
+                    Name="ReTweet a Telerik Announcement",
+                    Description="Share Telerik's announcements with your followers on Twitter."
+                }
+            };
         }
 
         public ActionResult LeaderboardData()
