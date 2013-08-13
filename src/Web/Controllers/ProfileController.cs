@@ -32,9 +32,36 @@ namespace Web.Controllers
                 NextLevel=22,
                 PointsTowardNextLevel=460,
                 PointsRequiredForNextLevel=1000,
-                SuggestedActivities=GetSuggestedActivities()
+                PercentCompleteForNextLevel=46,
+                SuggestedActivities=GetSuggestedActivities(),
+                AchievementsInProgress=GetAchievementsInProgress()
             };
             return View(model);
+        }
+
+        private List<AchievementProgressViewModel> GetAchievementsInProgress()
+        {
+            return new List<AchievementProgressViewModel>()
+            {
+                new AchievementProgressViewModel()
+                {
+                    Name="Pluralsight Scholar II",
+                    Description="Watch five Pluralsight courses on Telerik products.",
+                    ImageName="pluralsight-achievement.png",
+                    CompletedUnits=1,
+                    RequiredUnits=5,
+                    PercentComplete=20
+                },
+                new AchievementProgressViewModel()
+                {
+                    Name="StackOverflow Ninja III",
+                    Description="Provide 10 answers to Telerik product-tagged questions.",
+                    ImageName="stackoverflow-achievement.png",
+                    CompletedUnits=3,
+                    RequiredUnits=10,
+                    PercentComplete=30
+                }
+            };
         }
 
         private List<ActivityViewModel> GetSuggestedActivities()

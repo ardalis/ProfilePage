@@ -22,7 +22,9 @@ namespace Web.Models
         public int NextLevel { get; set; }
         public int PointsTowardNextLevel { get; set; }
         public int PointsRequiredForNextLevel { get; set; }
+        public int PercentCompleteForNextLevel { get; set; }
         public List<ActivityViewModel> SuggestedActivities { get; set; }
+        public List<AchievementProgressViewModel> AchievementsInProgress { get; set; }
     }
 
     public class ActivityViewModel
@@ -39,5 +41,6 @@ namespace Web.Models
         public string Description { get; set; }
         public int CompletedUnits { get; set; }
         public int RequiredUnits { get; set; }
+        public int PercentComplete { get; set; }
     }
 }

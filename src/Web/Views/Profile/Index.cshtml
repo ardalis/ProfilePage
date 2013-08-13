@@ -83,7 +83,7 @@
                             </div>
                             <div class="col-8">
                                 <div class="progress-bar2 green">
-                                    <span style="width: 40%">@Model.PointsTowardNextLevel</span><div class="progressend">@Model.PointsRequiredForNextLevel</div>
+                                    <span style="width: @Model.PercentCompleteForNextLevel%">@Model.PointsTowardNextLevel</span><div class="progressend">@Model.PointsRequiredForNextLevel</div>
                                 </div>
                             </div>
                             <div class="col-2">
@@ -144,28 +144,19 @@
         <div class="col-6">
             <h2>Achievement Progress</h2>
             <div class="container">
+                @foreach (var achievementProgress in Model.AchievementsInProgress) {
                 <div class="row">
                     <div class="col-2">
-                        <img src="/content/images/pluralsight-achievement.png" /></div>
+                        <img src="/content/images/@achievementProgress.ImageName" /></div>
                     <div class="col-10">
-                        <h4>Pluralsight Scholar II</h4>
-                        Watch five Pluralsight courses on Telerik products.
+                        <h4>@achievementProgress.Name</h4>
+                        @achievementProgress.Description
                         <div class="progress-bar2 green">
-                            <span style="width: 20%">1</span><div class="progressend">5</div>
+                            <span style="width: @achievementProgress.PercentComplete%">@achievementProgress.CompletedUnits</span><div class="progressend">@achievementProgress.RequiredUnits</div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-2">
-                        <img src="/content/images/stackoverflow-achievement.png" /></div>
-                    <div class="col-10">
-                        <h4>StackOverflow Ninja III</h4>
-                        Provide 10 answers to Telerik product-tagged questions.
-                        <div class="progress-bar2 green">
-                            <span style="width: 30%">3</span><div class="progressend">10</div>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>
