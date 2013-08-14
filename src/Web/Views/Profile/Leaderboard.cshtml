@@ -19,12 +19,13 @@
 @section scripts {
     <script type="text/javascript">
         var viewModel = new kendo.data.ObservableObject({
-            profiles: [{ "Name": "nobody", "Level": "0", "LastActivity": "never" }]
+            profiles: [{ "Name": "nobody", "Level": "0", "LastActivityDateString": "never" }]
         });
 
         function refreshData() {
             $.getJSON('/Profile/LeaderboardData', function (data) {
                 viewModel.set("profiles", data);
+                $('abbr.timeago').timeago();
             });
         }
 
@@ -65,8 +66,7 @@
             </td>
             <td data-bind="text: Level">
             </td>
-            <td data-bind="text: LastActivity">
-            </td>
+            <td><abbr class="timeago" title="#:LastActivityDateString #">#:LastActivityDateString #</abbr></td>
         </tr>
     </script>
 }

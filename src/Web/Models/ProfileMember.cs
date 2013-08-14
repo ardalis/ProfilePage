@@ -7,6 +7,6 @@ namespace Web.Models
     {
         public string Name { get; set; }
         public int Level { get; set; }
-        public string LastActivity { get; set; }
+        public string LastActivityDateString { get; set; }
     }
 }
