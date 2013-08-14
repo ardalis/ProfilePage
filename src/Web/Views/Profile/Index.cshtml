@@ -90,7 +90,7 @@
                             </div>
                             <div class="col-8">
                                 <div class="progress-bar2 green">
-                                    <span style="width: @Model.PercentCompleteForNextLevel%">@Model.PointsTowardNextLevel</span><div class="progressend">@Model.PointsRequiredForNextLevel</div>
+                                    <span class="bar" style="width: @Model.PercentCompleteForNextLevel%">@Model.PointsTowardNextLevel</span><div class="progressend">@Model.PointsRequiredForNextLevel</div>
                                 </div>
                             </div>
                             <div class="col-2">
@@ -159,7 +159,7 @@
                         <h4>@achievementProgress.Name</h4>
                         @achievementProgress.Description
                         <div class="progress-bar2 green">
-                            <span style="width: @achievementProgress.PercentComplete%">@achievementProgress.CompletedUnits</span><div class="progressend">@achievementProgress.RequiredUnits</div>
+                            <span style="width: @achievementProgress.PercentComplete%" class="bar">@achievementProgress.CompletedUnits</span><span class="progressend">@achievementProgress.RequiredUnits</span>
                         </div>
                     </div>
                 </div>
@@ -255,7 +255,7 @@
         box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
     }
 
-        .progress-bar2 span {
+        .progress-bar2 .bar {
             display: inline-block;
             height: 100%;
             -moz-border-radius: 3px;
@@ -275,7 +275,7 @@
             padding-left: 5px;
         }
 
-    .green span {
+    .green .bar {
         background-color: #8BBD00;
     }
 </style>
