@@ -94,10 +94,10 @@ namespace Web.Controllers
         {
             var members = new List<ProfileMember>()
             {
-                new ProfileMember() { Name="Ardalis", Level=70 },
-                new ProfileMember() { Name="Brendoneus", Level=69 },
-                new ProfileMember() { Name="Eric", Level=2 },
-                new ProfileMember() { Name=DateTime.Now.ToString(), Level=0 }
+                new ProfileMember() { Name="Ardalis", Level=70, LastActivity="Just now" },
+                new ProfileMember() { Name="Brendoneus", Level=69, LastActivity="5 days ago" },
+                new ProfileMember() { Name="Eric", Level=2, LastActivity="1 hour ago" },
+                new ProfileMember() { Name=DateTime.Now.ToString(), Level=0, LastActivity="Just now" }
             };
             return Json(members, JsonRequestBehavior.AllowGet);
         }

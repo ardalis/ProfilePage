@@ -36,10 +36,8 @@ namespace Web
         private void UpdateTime_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             Random rnd = new Random();
-            UpdateTimer.Interval = rnd.Next(1000, 15000);
+            UpdateTimer.Interval = rnd.Next(5000, 15000);
             ProfileHub.Trigger();
         }
-
-
     }
 }
