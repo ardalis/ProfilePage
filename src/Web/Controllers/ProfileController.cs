@@ -96,7 +96,8 @@ namespace Web.Controllers
             {
                 new ProfileMember() { Name="Ardalis", Level=70 },
                 new ProfileMember() { Name="Brendoneus", Level=69 },
-                new ProfileMember() { Name="Eric", Level=2 }
+                new ProfileMember() { Name="Eric", Level=2 },
+                new ProfileMember() { Name=DateTime.Now.ToString(), Level=0 }
             };
             return Json(members, JsonRequestBehavior.AllowGet);
         }

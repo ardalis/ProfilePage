@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
+using System.Diagnostics;
 
 namespace Web.Hubs
 {
@@ -15,8 +16,9 @@ namespace Web.Hubs
 
         internal static void Trigger()
         {
+            Debug.Print("ProfileHub.Trigger()");
             IHubContext context = GlobalHost.ConnectionManager.GetHubContext<ProfileHub>();
-            context.Clients.All.UpdateLeaderboard();
+            context.Clients.All.updateBoard();
         }
     }
 }

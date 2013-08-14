@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -38,7 +36,7 @@ namespace Web
         private void UpdateTime_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             Random rnd = new Random();
-            UpdateTimer.Interval = rnd.Next(400, 2500);
+            UpdateTimer.Interval = rnd.Next(1000, 15000);
             ProfileHub.Trigger();
         }
 

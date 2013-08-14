@@ -31,30 +31,33 @@
 
 @section scripts {
     <script type="text/javascript">
-        $(document).ready(function() {
-            $("#grid").kendoGrid({
-                dataSource: {
-                    type: "json",
-                    transport: {
-                        read: "/Profile/LeaderboardData"
-                    },
-                    schema: {
-                        model: {
-                            fields: {
-                                Name: { type: "string" },
-                                Level: { type: "number" }
-                            }
-                        }
-                    },
-                    pageSize: 20,
-                    serverPaging: false,
-                    serverFiltering: false,
-                    serverSorting: false
+        $(document).ready(function () {
+            window.leaderboardDataSource = new kendo.data.DataSource({
+                type: "json",
+                transport: {
+                    read: "/Profile/LeaderboardData"
                 },
-                height:430,
+                schema: {
+                    model: {
+                        fields: {
+                            Name: { type: "string" },
+                            Level: { type: "number" }
+                        }
+                    }
+                },
+                pageSize: 20,
+                serverPaging: false,
+                serverFiltering: false,
+                serverSorting: false
+            });
+
+            $("#grid").kendoGrid({
+                dataSource: leaderboardDataSource,
+                height: 430,
                 columns: [{
-                    field:"Name"},
-                    {field:"Level"}
+                    field: "Name"
+                },
+                    { field: "Level" }
                 ]
             });
         });
@@ -66,7 +69,22 @@
         $.connection.hub.start();
 
         function updateLeaderboard(profile) {
-            var data = $("#grid").data("kendoGrid").dataSource.data();
+            //            var data = $("#grid").data("kendoGrid").dataSource.data();
+            window.leaderboardDataSource.read();
+            showToast("Update", "Leaderboard data updated.");
+        }
+
+        function showToast(title, message) {
+            toastr.options = {
+                "debug": false,
+                "positionClass": "toast-top-right",
+                "onclick": null,
+                "fadeIn": 300,
+                "fadeOut": 1000,
+                "timeOut": 5000,
+                "extendedTimeOut": 1000
+            }
+            toastr.success(message, title);
         }
     </script>
 }
