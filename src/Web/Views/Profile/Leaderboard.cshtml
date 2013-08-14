@@ -4,7 +4,7 @@
 
 <h2>Leaderboard</h2>
 <div id="example">
-    <table id="leaderboard" class="metrotable">
+    <table id="leaderboard" class="table table-striped">
         <thead>
             <tr>
                 <th>Name</th>
@@ -15,30 +15,6 @@
         <tbody data-template="row-template" data-bind="source: profiles"></tbody>
     </table>
 </div>
-<table class="table table-striped table-hover">
-    <tr>
-        <th>Name</th>
-        <th>Level</th>
-    </tr>
-    <tr>
-        <td><a href="/Ardalis">Ardalis</a></td>
-        <td>70</td>
-    </tr>
-    <tr>
-        <td>Brendoneus</td>
-        <td>69</td>
-    </tr>
-    <tr>
-        <td>CodingWithSpike</td>
-        <td>68</td>
-    </tr>
-    <tr>
-        <td>Eric</td>
-        <td>1</td>
-    </tr>
-</table>
-
-<div id="grid" />
 
 @section scripts {
     <script type="text/javascript">
@@ -49,43 +25,11 @@
         function refreshData() {
             $.getJSON('/Profile/LeaderboardData', function (data) {
                 viewModel.set("profiles", data);
-                showToast("getJSON");
             });
         }
 
         $(document).ready(function () {
             refreshData();
-            window.leaderboardDataSource = new kendo.data.DataSource({
-                type: "json",
-                transport: {
-                    read: "/Profile/LeaderboardData"
-                },
-                schema: {
-                    model: {
-                        fields: {
-                            Name: { type: "string" },
-                            Level: { type: "number" },
-                            LastActivity: { type: "string" }
-                        }
-                    }
-                },
-                pageSize: 20,
-                serverPaging: false,
-                serverFiltering: false,
-                serverSorting: false
-            });
-
-            $("#grid").kendoGrid({
-                dataSource: leaderboardDataSource,
-                rowTemplate: kendo.template($("#detailsTemplate").html()),
-                height: 430,
-                columns: [{
-                    field: "Name"
-                },
-                    { field: "Level" },
-                    { field: "LastActivity" }
-                ]
-            });
             kendo.bind($("#example"), viewModel);
         });
 
@@ -97,8 +41,6 @@
         $.connection.hub.start();
 
         function updateLeaderboard(profile) {
-            //            var data = $("#grid").data("kendoGrid").dataSource.data();
-            window.leaderboardDataSource.read();
             refreshData();
             showToast("Update", "Leaderboard data updated.");
         }
@@ -117,26 +59,9 @@
         }
     </script>
 
-    <script id="detailsTemplate" type="text/x-kendo-template">
-    <tr class="row">
-        <td>
-          @*<div class="image">
-              <img src="<#= Name #>" alt="<#= Name #>" />
-          </div>*@
-        #= Name #
-        </td>
-        <td>
-          #= Level #
-        </td>
-        <td> 
-          #= LastActivity #
-        </td>
-    </tr>
-    </script>
-
     <script id="row-template" type="text/x-kendo-template">
         <tr>
-            <td data-bind="text: Name">
+            <td><a href="/#:Name #">#:Name #</a>
             </td>
             <td data-bind="text: Level">
             </td>
