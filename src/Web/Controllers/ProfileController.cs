@@ -90,6 +90,7 @@ namespace Web.Controllers
             };
         }
 
+        [OutputCache(Duration=600, VaryByParam="None")]
         public ActionResult LeaderboardData()
         {
             var members = new List<ProfileMember>()
