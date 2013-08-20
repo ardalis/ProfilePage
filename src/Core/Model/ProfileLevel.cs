@@ -8,5 +8,10 @@ namespace Core.Model
         public int Level { get; set; }
         public string Name { get; set; }
         public int PointsRequired { get; set; }
+
+        public override string ToString()
+        {
+            return String.Format("{0} Points Required: {1}", Name, PointsRequired);
+        }
     }
 }
