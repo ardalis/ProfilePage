@@ -58,6 +58,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Profile.feature</DependentUpon>
     </Compile>
+    <Compile Include="ProfileLevel.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProfileLevel.feature</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileLevelSteps.cs" />
     <Compile Include="ProfileSteps.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +80,10 @@
     <None Include="Profile.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Profile.feature.cs</LastGenOutput>
+    </None>
+    <None Include="ProfileLevel.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ProfileLevel.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Choose>
