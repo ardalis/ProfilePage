@@ -29,13 +29,6 @@ namespace Core.Services
                 }
                 levels.Add(new ProfileLevel() { Level = i + 1, Name = "Ninja " + (i+1), PointsRequired = pointsRequired });
             }
-            //levels.Add(new ProfileLevel() { Level = 1, Name = "One", PointsRequired = 0 });
-            //levels.Add(new ProfileLevel() { Level = 2, Name = "Two", PointsRequired = 1000 });
-            //levels.Add(new ProfileLevel() { Level = 3, Name = "Three", PointsRequired = 2000 });
-            //levels.Add(new ProfileLevel() { Level = 4, Name = "Four", PointsRequired = 3000 });
-            //levels.Add(new ProfileLevel() { Level = 5, Name = "Five", PointsRequired = 5000 });
-            //levels.Add(new ProfileLevel() { Level = 6, Name = "Six", PointsRequired = 8000 });
-            //levels.Add(new ProfileLevel() { Level = 7, Name = "Seven", PointsRequired = 10000 });
 
             return levels.OrderBy(l => l.PointsRequired).ToList();
         }

@@ -28,5 +28,13 @@ namespace Core.Tests
         {
             Assert.AreEqual(0, _profile.Points);
         }
+
+        [Then(@"The profile should have a unique identifier")]
+        public void ThenTheProfileShouldHaveAUniqueIdentifier()
+        {
+            Assert.IsNotNull(_profile.Id);
+            Assert.AreNotEqual(Guid.Empty, _profile.Id);
+        }
+
     }
 }
