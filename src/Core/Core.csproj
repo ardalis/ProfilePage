@@ -46,6 +46,7 @@
     <Compile Include="Model\ProfileLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ActivityService.cs" />
+    <Compile Include="Services\ProfileLevelMonitorService.cs" />
     <Compile Include="Services\ProfileLevelService.cs" />
   </ItemGroup>
   <ItemGroup />
