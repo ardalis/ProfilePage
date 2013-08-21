@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Core.Tests
+namespace Core.Tests.Model
 {
     using TechTalk.SpecFlow;
     
@@ -49,7 +49,7 @@ namespace Core.Tests
             if (((TechTalk.SpecFlow.FeatureContext.Current != null) 
                         && (TechTalk.SpecFlow.FeatureContext.Current.FeatureInfo.Title != "Profile")))
             {
-                Core.Tests.ProfileFeature.FeatureSetup(null);
+                Core.Tests.Model.ProfileFeature.FeatureSetup(null);
             }
         }
         

@@ -14,6 +14,7 @@ namespace Core.Model
         {
             Id = id;
         }
+
         public Guid Id { get; private set; }
         public int Points { get; private set; }
     }

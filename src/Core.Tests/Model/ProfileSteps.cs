@@ -3,7 +3,7 @@ using Core.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
 
-namespace Core.Tests
+namespace Core.Tests.Model
 {
     [Binding]
     public class ProfileSteps
