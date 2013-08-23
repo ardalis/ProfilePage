@@ -9,5 +9,5 @@ Scenario: Log an Activity
 	And I have an instance of an Act
 	When I log the activity
 	Then the activity should be persisted
-	And an ActLogged event should be fired
+	And an ActLogged event should be fired 
 

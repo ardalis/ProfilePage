@@ -11,5 +11,5 @@ Scenario: New Profile
 
 	Given A user has created a new public profile
 	When The profile has been created
-	Then The profile should have a unique identifier
+	Then The profile should have a unique identifier 
 

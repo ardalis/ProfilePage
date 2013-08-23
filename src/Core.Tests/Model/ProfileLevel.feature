@@ -19,4 +19,4 @@ Scenario: Get Profile Level
 
 	Given An instance of ProfileService
 	When I request a level for 2000 points
-	Then the result should be level 3
+	Then the result should be level 3 
