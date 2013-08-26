@@ -13,3 +13,7 @@ Scenario: New Profile
 	When The profile has been created
 	Then The profile should have a unique identifier 
 
+Scenario: New Level
+	Given A profile exists with 999 points
+	When The profile has 50 points applied
+	Then The profile should trigger a NewLevelAchieved Event

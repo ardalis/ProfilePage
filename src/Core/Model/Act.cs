@@ -11,7 +11,7 @@ namespace Core.Model
     /// </summary>
     public class Act
     {
-        public Act(Guid id, Guid profileId, int activityId, DateTime utcDateOfAct, string details)
+        public Act(Guid id, Guid profileId, Guid activityId, DateTime utcDateOfAct, string details)
         {
             this.Details = details;
             this.UtcDateOfAct = utcDateOfAct;
@@ -22,7 +22,7 @@ namespace Core.Model
 
         public Guid Id { get; private set; }
         public Guid ProfileId { get; private set; }
-        public int ActivityId { get; private set; }
+        public Guid ActivityId { get; private set; }
         public DateTime UtcDateOfAct { get; private set; }
         public string Details { get; private set; }
     }

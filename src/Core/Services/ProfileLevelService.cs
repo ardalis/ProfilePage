@@ -9,7 +9,7 @@ namespace Core.Services
     {
         public ProfileLevel GetLevelForPoints(int points)
         {
-            return GetLevels().First(l => points >= l.PointsRequired);
+            return GetLevels().Last(l => points >= l.PointsRequired);
         }
 
         public List<ProfileLevel> GetLevels()

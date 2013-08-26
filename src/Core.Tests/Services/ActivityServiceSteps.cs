@@ -11,7 +11,7 @@ namespace Core.Tests.Services
     [Binding]
     public class ActivityServiceSteps
     {
-        private ActivityService _activityService;
+        private ActLoggerService _activityService;
         private Act _act;
         private IActRepository _mockActivityRepository;
         private Act _actRaisedInEvent;
@@ -21,7 +21,7 @@ namespace Core.Tests.Services
         {
             _mockActivityRepository = Mock.Create<IActRepository>(Behavior.Strict);
             Mock.Arrange(() => _mockActivityRepository.Save(Arg.IsAny<Act>()));
-            _activityService = new ActivityService(_mockActivityRepository);
+            _activityService = new ActLoggerService(_mockActivityRepository);
             _activityService.Logged += delegate(object sender, ActLoggedEventArgs e)
             {
                 _actRaisedInEvent = e.Act;
@@ -31,7 +31,7 @@ namespace Core.Tests.Services
         [Given(@"I have an instance of an Act")]
         public void GivenIHaveAnInstanceOfAnAct()
         {
-            _act = new Act(Guid.NewGuid(), Guid.NewGuid(), 1, DateTime.UtcNow, "test act");
+            _act = new Act(Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), DateTime.UtcNow, "test act");
         }
         
         [When(@"I log the activity")]

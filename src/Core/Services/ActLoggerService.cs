@@ -7,12 +7,12 @@ namespace Core.Services
 {
     public delegate void ActLoggedEventHandler(object sender, ActLoggedEventArgs e);
 
-    public class ActivityService
+    public class ActLoggerService
     {
         private readonly IActRepository _actRepository;
         public event ActLoggedEventHandler Logged;
 
-        public ActivityService(IActRepository actRepository)
+        public ActLoggerService(IActRepository actRepository)
         {
             this._actRepository = actRepository;
         }

@@ -39,13 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IActivityRepository.cs" />
     <Compile Include="Interfaces\IActRepository.cs" />
+    <Compile Include="Interfaces\IProfileRepository.cs" />
     <Compile Include="Model\Act.cs" />
     <Compile Include="Model\Activity.cs" />
+    <Compile Include="Model\Events\NewLevelAchievedEventArgs.cs" />
+    <Compile Include="Model\Events\NewLevelAchievedEventHandler.cs" />
     <Compile Include="Model\Profile.cs" />
     <Compile Include="Model\ProfileLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ActivityService.cs" />
+    <Compile Include="Services\ActLoggerService.cs" />
     <Compile Include="Services\ProfileLevelMonitorService.cs" />
     <Compile Include="Services\ProfileLevelService.cs" />
   </ItemGroup>

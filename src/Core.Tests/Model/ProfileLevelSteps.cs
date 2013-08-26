@@ -27,7 +27,7 @@ namespace Core.Tests.Model
         [Then(@"the result should be level (.*)")]
         public void ThenTheResultShouldBeLevel(int p0)
         {
-            Assert.AreEqual(1, _result.Level);
+            Assert.AreEqual(p0, _result.Level);
         }
     }
 }
