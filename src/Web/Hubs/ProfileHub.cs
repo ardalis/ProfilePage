@@ -20,5 +20,11 @@ namespace Web.Hubs
             IHubContext context = GlobalHost.ConnectionManager.GetHubContext<ProfileHub>();
             context.Clients.All.updateBoard();
         }
+
+        internal static void ProfilePoints()
+        {
+            IHubContext context = GlobalHost.ConnectionManager.GetHubContext<ProfileHub>();
+            context.Clients.All.updatePoints();
+        }
     }
 }

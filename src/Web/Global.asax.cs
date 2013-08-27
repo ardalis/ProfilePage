@@ -45,6 +45,7 @@ namespace Web
             Random rnd = new Random();
             UpdateTimer.Interval = rnd.Next(5000, 15000);
             ProfileHub.Trigger();
+            ProfileHub.ProfilePoints();
         }
     }
 }

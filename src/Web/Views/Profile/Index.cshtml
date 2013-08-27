@@ -90,7 +90,9 @@
                             </div>
                             <div class="col-8">
                                 <div class="progress-bar2 green">
-                                    <span class="bar" style="width: @Model.PercentCompleteForNextLevel%">@Model.PointsTowardNextLevel</span><div class="progressend">@Model.PointsRequiredForNextLevel</div>
+                                    <span id="pointprogress" class="bar" 
+                                        style="width: @Model.PercentCompleteForNextLevel%" 
+                                        data-bind="text: points, style: { width: percent + '%' }">@Model.PointsTowardNextLevel</span><div class="progressend">@Model.PointsRequiredForNextLevel</div>
                                 </div>
                             </div>
                             <div class="col-2">
@@ -113,17 +115,23 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-2">
-                                <img src="/content/images/pluralsight-achievement.png" /></div>
+                                <img src="/content/images/pluralsight-achievement.png" />
+                            </div>
                             <div class="col-2">
-                                <img src="/content/images/stackoverflow-achievement.png" /></div>
+                                <img src="/content/images/stackoverflow-achievement.png" />
+                            </div>
                             <div class="col-2">
-                                <img src="/content/images/pluralsight-achievement.png" /></div>
+                                <img src="/content/images/pluralsight-achievement.png" />
+                            </div>
                             <div class="col-2">
-                                <img src="/content/images/stackoverflow-achievement.png" /></div>
+                                <img src="/content/images/stackoverflow-achievement.png" />
+                            </div>
                             <div class="col-2">
-                                <img src="/content/images/pluralsight-achievement.png" /></div>
+                                <img src="/content/images/pluralsight-achievement.png" />
+                            </div>
                             <div class="col-2">
-                                <img src="/content/images/stackoverflow-achievement.png" /></div>
+                                <img src="/content/images/stackoverflow-achievement.png" />
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -138,31 +146,34 @@
     <div class="row">
         <div class="col-6">
             <h2>Get More Points</h2>
-            @foreach (var activity in Model.SuggestedActivities) {
-            <div class="greybox">
-                <div class="col-2 number">@activity.Points</div>
-                <div class="col-10">
-                    <h4>@activity.Name</h4>
-                    @activity.Description
+            @foreach (var activity in Model.SuggestedActivities)
+            {
+                <div class="greybox">
+                    <div class="col-2 number">@activity.Points</div>
+                    <div class="col-10">
+                        <h4>@activity.Name</h4>
+                        @activity.Description
+                    </div>
                 </div>
-            </div>
             }
         </div>
         <div class="col-6">
             <h2>Achievement Progress</h2>
             <div class="container">
-                @foreach (var achievementProgress in Model.AchievementsInProgress) {
-                <div class="row">
-                    <div class="col-2">
-                        <img src="/content/images/@achievementProgress.ImageName" /></div>
-                    <div class="col-10">
-                        <h4>@achievementProgress.Name</h4>
-                        @achievementProgress.Description
-                        <div class="progress-bar2 green">
-                            <span style="width: @achievementProgress.PercentComplete%" class="bar">@achievementProgress.CompletedUnits</span><span class="progressend">@achievementProgress.RequiredUnits</span>
+                @foreach (var achievementProgress in Model.AchievementsInProgress)
+                {
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="/content/images/@achievementProgress.ImageName" />
+                        </div>
+                        <div class="col-10">
+                            <h4>@achievementProgress.Name</h4>
+                            @achievementProgress.Description
+                            <div class="progress-bar2 green">
+                                <span style="width: @achievementProgress.PercentComplete%" class="bar">@achievementProgress.CompletedUnits</span><span class="progressend">@achievementProgress.RequiredUnits</span>
+                            </div>
                         </div>
                     </div>
-                </div>
                 }
             </div>
         </div>
@@ -279,3 +290,42 @@
         background-color: #8BBD00;
     }
 </style>
+@section scripts {
+    <script type="text/javascript">
+        var viewModel = new kendo.data.ObservableObject({
+            points: 500,
+            percent: 10
+        });
+
+        $(document).ready(function () {
+            kendo.bind($("#pointprogress"), viewModel);
+        });
+
+        var hub = $.connection.profileHub;
+        hub.client.updatePoints = function (profile) {
+            updatePoints(profile);
+        };
+        $.connection.hub.start();
+
+        function updatePoints(profile) {
+            viewModel.points = viewModel.points + 500;
+            viewModel.percent = viewModel.percent + 5;
+            kendo.bind($("#pointprogress"), viewModel);
+            showToast("New Activity", "New Activity Detected");
+        }
+
+        function showToast(title, message) {
+            toastr.options = {
+                "debug": false,
+                "positionClass": "toast-top-right",
+                "onclick": null,
+                "fadeIn": 300,
+                "fadeOut": 1000,
+                "timeOut": 5000,
+                "extendedTimeOut": 1000
+            }
+            toastr.success(message, title);
+        }
+
+    </script>
+}
