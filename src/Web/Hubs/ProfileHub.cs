@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using Microsoft.AspNet.SignalR;
+using System.Diagnostics;
 
 namespace Web.Hubs
 {
@@ -9,15 +9,20 @@ namespace Web.Hubs
     {
         public void Hello()
         {
-            this.Clients.All.hello();
+            Clients.All.hello();
         }
 
-        internal static void Trigger(string title, string message)
+        internal static void Trigger()
         {
             Debug.Print("ProfileHub.Trigger()");
             IHubContext context = GlobalHost.ConnectionManager.GetHubContext<ProfileHub>();
-            //context.Clients.All.updateBoard();
-            context.Clients.All.notify(title, message);
+            context.Clients.All.updateBoard();
+        }
+
+        internal static void ProfilePoints()
+        {
+            IHubContext context = GlobalHost.ConnectionManager.GetHubContext<ProfileHub>();
+            context.Clients.All.updatePoints();
         }
     }
 }
