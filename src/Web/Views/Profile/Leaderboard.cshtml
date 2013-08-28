@@ -39,6 +39,9 @@
         hub.client.updateBoard = function (profile) {
             updateLeaderboard(profile);
         };
+        hub.client.notify = function (title, message) {
+            showToast(title, message);
+        };
         $.connection.hub.start();
 
         function updateLeaderboard(profile) {

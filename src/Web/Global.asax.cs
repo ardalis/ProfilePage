@@ -1,16 +1,12 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System;
-using System.IO;
+﻿using System;
 using System.Linq;
-using System.Net.Http.Formatting;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Core.Model;
+using Infrastructure.Repositories;
 using Web.Hubs;
+using Core.Services;
 
 namespace Web
 {
@@ -19,6 +15,8 @@ namespace Web
     public class MvcApplication : System.Web.HttpApplication
     {
         private static System.Timers.Timer UpdateTimer;
+        private static ProfileRepository ProfileRepository;
+        private static Guid ProfileId;
 
         protected void Application_Start()
         {
@@ -29,13 +27,17 @@ namespace Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            SetupTimer();
+            ProfileRepository = new ProfileRepository();
+            ProfileId = Guid.NewGuid();
+            ProfileRepository.Save(new Profile(ProfileId));
+
+            this.SetupTimer();
         }
 
         void SetupTimer()
         {
             UpdateTimer = new System.Timers.Timer(10000);
-            UpdateTimer.Elapsed += new System.Timers.ElapsedEventHandler(UpdateTime_Elapsed);
+            UpdateTimer.Elapsed += new System.Timers.ElapsedEventHandler(this.UpdateTime_Elapsed);
             UpdateTimer.Interval = 5000;
             UpdateTimer.Enabled = true;
         }
@@ -44,7 +46,15 @@ namespace Web
         {
             Random rnd = new Random();
             UpdateTimer.Interval = rnd.Next(5000, 15000);
-            ProfileHub.Trigger();
+            var profile = ProfileRepository.Get(ProfileId);
+            profile.NewLevelAchieved += (o, i) =>
+            {
+                var levelService = new ProfileLevelService();
+                var currentLevel = levelService.GetLevelForPoints(profile.Points);
+                ProfileHub.Trigger("Leveled Up", "Congrats on reaching level " + currentLevel);
+            };
+            profile.ApplyPoints(500, new Core.Services.ProfileLevelService());
+            //ProfileHub.Trigger("", "");
         }
     }
 }

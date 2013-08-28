@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.AspNet.SignalR;
 using System.Diagnostics;
+using System.Linq;
+using Microsoft.AspNet.SignalR;
 
 namespace Web.Hubs
 {
@@ -11,14 +9,15 @@ namespace Web.Hubs
     {
         public void Hello()
         {
-            Clients.All.hello();
+            this.Clients.All.hello();
         }
 
-        internal static void Trigger()
+        internal static void Trigger(string title, string message)
         {
             Debug.Print("ProfileHub.Trigger()");
             IHubContext context = GlobalHost.ConnectionManager.GetHubContext<ProfileHub>();
-            context.Clients.All.updateBoard();
+            //context.Clients.All.updateBoard();
+            context.Clients.All.notify(title, message);
         }
     }
 }
