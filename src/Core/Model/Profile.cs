@@ -23,7 +23,7 @@ namespace Core.Model
 
         public Guid Id { get; private set; }
         public int Points { get; set; }
-        public IList<Act> History { get; private set; }
+        public IList<Act> History { get; set; }
 
         public void ApplyPoints(int points, ProfileLevelService profileLevelService)
         {

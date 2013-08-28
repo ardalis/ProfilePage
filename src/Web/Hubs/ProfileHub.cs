@@ -12,11 +12,11 @@ namespace Web.Hubs
             Clients.All.hello();
         }
 
-        internal static void Trigger()
+        internal static void Trigger(string title, string message)
         {
             Debug.Print("ProfileHub.Trigger()");
             IHubContext context = GlobalHost.ConnectionManager.GetHubContext<ProfileHub>();
-            context.Clients.All.updateBoard();
+            context.Clients.All.updateBoard(title, message);
         }
 
         internal static void ProfilePoints()

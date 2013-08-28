@@ -46,7 +46,6 @@ namespace Web
         {
             Random rnd = new Random();
             UpdateTimer.Interval = rnd.Next(5000, 15000);
-<<<<<<< HEAD
             var profile = ProfileRepository.Get(ProfileId);
             profile.NewLevelAchieved += (o, i) =>
             {
@@ -55,11 +54,7 @@ namespace Web
                 ProfileHub.Trigger("Leveled Up", "Congrats on reaching level " + currentLevel);
             };
             profile.ApplyPoints(500, new Core.Services.ProfileLevelService());
-            //ProfileHub.Trigger("", "");
-=======
-            ProfileHub.Trigger();
             ProfileHub.ProfilePoints();
->>>>>>> 3047142f3099f89a86f8662869925595d53d9d88
         }
     }
 }

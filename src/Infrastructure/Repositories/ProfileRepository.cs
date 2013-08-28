@@ -11,7 +11,12 @@ namespace Infrastructure.Repositories
         private static Dictionary<Guid, Profile> _profiles = new Dictionary<Guid, Profile>();
         public Profile Get(Guid id)
         {
-            return _profiles[id];
+            return NewProfileFrom(_profiles[id]);
+        }
+
+        private Profile NewProfileFrom(Profile profile)
+        {
+            return new Profile(profile.Id) { History = profile.History, Points = profile.Points };
         }
 
         public void Save(Profile profile)
