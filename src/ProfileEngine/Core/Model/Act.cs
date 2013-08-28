@@ -1,0 +1,10 @@
+using ProfileEngine.Core.Interfaces;
+
+namespace ProfileEngine.Core.Model
+{
+    public class Act : IEntity
+    {
+        public System.Guid Id { get; private set; }
+
+    }
+}

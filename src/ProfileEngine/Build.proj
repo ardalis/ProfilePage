@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectName>Profile</ProjectName>
+    <ShortName>Profile</ShortName>
+  </PropertyGroup>
+  <Target Name="DebugBuild">
+    <Message Text="Building $(ProjectName)" />
+    <MSBuild Projects="$(ShortName).sln" Targets="Clean" Properties="Configuration=Debug" />
+    <MSBuild Projects="$(ShortName).sln" Targets="Build" Properties="Configuration=Debug" />
+  </Target>
+  <Target Name="UnitTests" DependsOnTargets="DebugBuild">
+    <Message Text="Running $(ProjectName) Core Tests" />
+    <Exec Command="..\lib\nunit\nunit-console.exe &quot;Core.Tests\bin\debug\Core.Tests.dll&quot;"/>
+
+    <Message Text="Running $(ProjectName) Web Tests" />
+    <Exec Command="..\lib\nunit\nunit-console.exe &quot;Web.Tests\bin\debug\Web.Tests.dll&quot;"/>
+  </Target>
+</Project>
