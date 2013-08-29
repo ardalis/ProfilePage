@@ -1,8 +1,8 @@
 using ProfileEngine.Core.Interfaces;
 
-namespace ProfileEngine.Core.Model
+namespace ProfileEngine.Core.Model.ProfileAggregate
 {
-    public class Achievement : IEntity
+    public class Act : IEntity
     {
         public System.Guid Id { get; private set; }
 

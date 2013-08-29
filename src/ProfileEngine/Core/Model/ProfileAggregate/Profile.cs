@@ -2,7 +2,7 @@
 using System.Linq;
 using ProfileEngine.Core.Interfaces;
 
-namespace ProfileEngine.Core.Model
+namespace ProfileEngine.Core.Model.ProfileAggregate
 {
     public class Profile : IEntity
     {
