@@ -7,5 +7,7 @@ namespace ProfileEngine.Core.Model.ProfileAggregate
     public class Profile : IEntity
     {
         public System.Guid Id { get; private set; }
+        public IQueryable<Act> History { get; private set; }
+
     }
 }
