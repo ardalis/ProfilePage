@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ProfileEngine.Core.Interfaces;
 
 namespace ProfileEngine.Core.Model.Events
 {
-    public class NewLevelEvent
+    public class NewLevelEvent : IEvent
     {
     }
 }
