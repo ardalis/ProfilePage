@@ -4,7 +4,7 @@ using ProfileEngine.Core.Interfaces;
 
 namespace ProfileEngine.Core.Model.Events
 {
-    public class NewLevelEvent : IEvent
+    public class NewLevelEvent : IDomainEvent
     {
     }
 }

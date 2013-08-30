@@ -4,7 +4,7 @@ using ProfileEngine.Core.Interfaces;
 
 namespace ProfileEngine.Core.Model.Events
 {
-    public class AchievementEarnedEvent : IEvent
+    public class AchievementEarnedEvent : IDomainEvent
     {
     }
 }

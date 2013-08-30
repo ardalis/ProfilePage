@@ -42,10 +42,12 @@
     <Compile Include="Interfaces\IAchievementLimit.cs" />
     <Compile Include="Interfaces\IDateTime.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
-    <Compile Include="Interfaces\IEvent.cs" />
+    <Compile Include="Interfaces\IDomainEvent.cs" />
+    <Compile Include="Interfaces\IHandleEvent.cs" />
     <Compile Include="Model\AchievementAggregate\Achievement.cs" />
     <Compile Include="Model\AchievementAggregate\ActivityRequired.cs" />
     <Compile Include="Model\DayLimit.cs" />
+    <Compile Include="Model\Events\TelerikTweetRetweeted.cs" />
     <Compile Include="Model\ProfileAggregate\Act.cs" />
     <Compile Include="Model\ActivityAggregate\Activity.cs" />
     <Compile Include="Model\Events\AchievementEarnedEvent.cs" />

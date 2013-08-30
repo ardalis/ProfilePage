@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProfileEngine.Core.Model.Events;
+using ProfileEngine.Infrastructure;
+using ServiceStack.Text;
 
 namespace ProfileEngine
 {
@@ -26,6 +31,8 @@ namespace ProfileEngine
             stream.Close();
             stream.Dispose();
 
+            SendTestTwitterMessages();
+
             Console.WriteLine(
                 "I have written to " + applicationPath + "\\output.txt");
             Console.WriteLine("Press any key to exit...");
@@ -39,6 +46,36 @@ namespace ProfileEngine
             //remove the line below.
             Environment.Exit(0);
         }
+
+        private void SendTestTwitterMessages()
+        {
+            Console.WriteLine("Sending Twitter RT Message...");
+            var message = new TelerikTweetRetweeted()
+            {
+                ActivityId = Guid.Empty,
+                ProfileId = Guid.Empty,
+                OccurredOnUtc = DateTime.UtcNow,
+                Details="@ardalis RT'd @telerik: https://twitter.com/Telerik/status/373442658691477504"
+            };
+
+            var connection = GetConnection();
+            connection.Open();
+            var transaction = connection.BeginTransaction();
+
+            var conversationHandle = ServiceBrokerWrapper.BeginConversation(transaction, "SBSendService", "SBReceiveService", "SBContract");
+            ServiceBrokerWrapper.Send(transaction, conversationHandle, "SBMessage", Encoding.Unicode.GetBytes(message.ToJson()));
+
+
+            transaction.Commit();
+            connection.Close();
+
+        }
+
+        private SqlConnection GetConnection()
+        {
+            return new SqlConnection(ConfigurationManager.ConnectionStrings["ServiceBrokerDb"].ConnectionString);
+        }
+
 
         public void Close()
         {

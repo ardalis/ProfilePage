@@ -1,6 +1,6 @@
 namespace ProfileEngine.Core.Interfaces
 {
-    public interface IEvent
+    public interface IDomainEvent
     {
     }
 }
