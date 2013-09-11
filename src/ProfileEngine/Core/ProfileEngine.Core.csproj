@@ -44,6 +44,7 @@
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Interfaces\IDomainEvent.cs" />
     <Compile Include="Interfaces\IHandleEvent.cs" />
+    <Compile Include="Interfaces\IRaiseEvent.cs" />
     <Compile Include="Model\AchievementAggregate\Achievement.cs" />
     <Compile Include="Model\AchievementAggregate\ActivityRequired.cs" />
     <Compile Include="Model\DayLimit.cs" />

@@ -6,9 +6,4 @@ namespace ProfileEngine.Core.Interfaces
     {
         void Handle(T domainEvent);
     }
-
-    public interface IRaiseEvent 
-    {
-        Task Raise<T>(T domainEvent) where T : IDomainEvent;
-    }
 }

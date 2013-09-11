@@ -20,6 +20,7 @@ namespace ProfileEngine
         public ConsoleApplication(string applicationPath, bool consoleMode)
         {
             //This is where your console application would be
+            IoC.Init();
 
             Console.WriteLine("Hybrid Service Application");
             Console.WriteLine();
