@@ -21,13 +21,13 @@ namespace ProfileEngine
                             scan.WithDefaultConventions();
                         });
 
-                    config.AddRegistry<EvantHandlerRegistry>();
+                    config.AddRegistry<EventHandlerRegistry>();
                 });
         }
 
-        public class EvantHandlerRegistry : Registry
+        public class EventHandlerRegistry : Registry
         {
-            public EvantHandlerRegistry()
+            public EventHandlerRegistry()
             {
                 Scan(scan =>
                     scan.AddAllTypesOf<IHandleEvent<IDomainEvent>>()
